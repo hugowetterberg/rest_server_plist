@@ -12,8 +12,10 @@ class RESTServerPlistView extends RESTServerView {
     switch ($this->arguments['format']) {
       case 'xml':
         $data = $plist->toXML();
+        break;
       default:
         $data = $plist->toBinary();
+        break;
     }
     return $data;
   }
