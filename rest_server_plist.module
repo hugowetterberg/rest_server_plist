@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * Implementation of hook_autoload_info().
+ */
+function rest_server_plist_autoload_info() {
+  return array(
+    'RESTServerPlistView' => array(
+      'file' => 'includes/RESTServerPlistView.inc',
+    ),
+    'ExtendedCFTypeDetector' => array(
+      'file' => 'includes/ExtendedCFTypeDetector.inc',
+    ),
+    'Math_BigInteger' => array(
+      'file' => 'lib/phpseclib/BigInteger.php',
+    ),
+    'CFBinaryPropertyList' => array(
+      'file' => 'lib/cfpropertylist/CFBinaryPropertyList.php'
+    ),
+    'CFPropertyList' => array(
+      'file' => 'lib/cfpropertylist/CFPropertyList.php'
+    ),
+    'CFType' => array(
+      'file' => 'lib/cfpropertylist/CFType.php'
+    ),
+    'CFtypeDetector' => array(
+      'file' => 'lib/cfpropertylist/CFtypeDetector.php'
+    ),
+    'IOException' => array(
+      'file' => 'lib/cfpropertylist/IOException.php'
+    ),
+    'PListException' => array(
+      'file' => 'lib/cfpropertylist/PListException.php'
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_rest_server_response_formatters_alter().
+ */
+function rest_server_plist_rest_server_response_formatters_alter(&$formatters) {
+  $formatters['plist'] = array(
+    'mime types' => array('application/plist'),
+    'view' => 'RESTServerPlistView',
+    'view arguments' => array('format' => 'binary'),
+  );
+  $formatters['xmlplist'] = array(
+    'mime types' => array('application/plist+xml'),
+    'view' => 'RESTServerPlistView',
+    'view arguments' => array('format' => 'xml'),
+  );
+}
+
+/**
+ * Implementation of hook_rest_server_request_parsers_alter().
+ */
+function rest_server_plist_rest_server_request_parsers_alter(&$parsers) {
+  $parsers['application/plist'] = 'rest_server_plist_parse_binary_plist';
+  $parsers['application/plist+xml'] = 'rest_server_plist_parse_xml_plist';
+}
+
+/**
+ * Callback for parsing binary plists.
+ *
+ * @param resource $stream 
+ * @return array
+ */
+function rest_server_plist_parse_binary_plist($stream) {
+  $plist = new CFPropertyList();
+  $plist->readBinaryStream($stream);
+  return $plist->toArray();
+}
+
+/**
+ * Callback for parsing xml plists.
+ *
+ * @param resource $stream 
+ * @return array
+ */
+function rest_server_plist_parse_xml_plist($stream) {
+  $plist = new CFPropertyList();
+  $plist->loadXMLStream($stream);
+  return $plist->toArray();
+}

@@ -1,0 +1,8 @@
+; $Id$
+name = REST Server plist Support
+description = Provides binary and xml plist support for the REST Server.
+package = Services - servers
+dependencies[] = rest_server
+dependencies[] = autoload
+core = 6.x
+php = 5.2
