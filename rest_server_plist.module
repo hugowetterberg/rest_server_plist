@@ -4,6 +4,9 @@
  * Implementation of hook_autoload_info().
  */
 function rest_server_plist_autoload_info() {
+  $cftype = array(
+    'file' => 'lib/cfpropertylist/CFType.php',
+  );
   return array(
     'RESTServerPlistView' => array(
       'file' => 'includes/RESTServerPlistView.inc',
@@ -14,17 +17,22 @@ function rest_server_plist_autoload_info() {
     'Math_BigInteger' => array(
       'file' => 'lib/phpseclib/BigInteger.php',
     ),
+    'CFType' => $cftype,
+    'CFArray' => $cftype,
+    'CFBoolean' => $cftype,
+    'CFData' => $cftype,
+    'CFDate' => $cftype,
+    'CFDictionary' => $cftype,
+    'CFNumber' => $cftype,
+    'CFString' => $cftype,
     'CFBinaryPropertyList' => array(
       'file' => 'lib/cfpropertylist/CFBinaryPropertyList.php'
     ),
     'CFPropertyList' => array(
       'file' => 'lib/cfpropertylist/CFPropertyList.php'
     ),
-    'CFType' => array(
-      'file' => 'lib/cfpropertylist/CFType.php'
-    ),
-    'CFtypeDetector' => array(
-      'file' => 'lib/cfpropertylist/CFtypeDetector.php'
+    'CFTypeDetector' => array(
+      'file' => 'lib/cfpropertylist/CFTypeDetector.php'
     ),
     'IOException' => array(
       'file' => 'lib/cfpropertylist/IOException.php'
