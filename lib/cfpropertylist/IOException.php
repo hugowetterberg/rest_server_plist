@@ -5,7 +5,7 @@
  * @author Rodney Rehm <rodney.rehm@medialize.de>
  * @author Christian Kruse <cjk@wwwtech.de>
  * @package plist
- * @version $Id$
+ * @version $Id: IOException.php,v 1.1 2010/05/07 06:38:43 hugowetterberg Exp $
  */
 
 /**

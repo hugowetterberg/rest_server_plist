@@ -5,7 +5,7 @@
  * @author Rodney Rehm <rodney.rehm@medialize.de>
  * @author Christian Kruse <cjk@wwwtech.de>
  * @package plist
- * @version $Id$
+ * @version $Id: CFPropertyList.php,v 1.1 2010/05/07 06:38:43 hugowetterberg Exp $
  * @example example-read-01.php Read an XML PropertyList
  * @example example-read-02.php Read a Binary PropertyList
  * @example example-read-03.php Read a PropertyList without knowing the type

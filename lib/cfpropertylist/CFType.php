@@ -6,7 +6,7 @@
  * @author Christian Kruse <cjk@wwwtech.de>
  * @package plist
  * @subpackage plist.types
- * @version $Id$
+ * @version $Id: CFType.php,v 1.1 2010/05/07 06:38:43 hugowetterberg Exp $
  */
 
 /**
@@ -15,7 +15,7 @@
  * @author Christian Kruse <cjk@wwwtech.de>
  * @package plist
  * @subpackage plist.types
- * @version $Id$
+ * @version $Id: CFType.php,v 1.1 2010/05/07 06:38:43 hugowetterberg Exp $
  * @example example-create-01.php Using the CFPropertyList API
  * @example example-create-02.php Using CFPropertyList::guess()
  * @example example-create-03.php Using CFPropertyList::guess() with {@link CFDate} and {@link CFData}
